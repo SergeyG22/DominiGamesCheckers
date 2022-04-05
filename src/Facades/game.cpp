@@ -23,4 +23,3 @@ void Game::gameLoop() {
     } 
 }
 
-
