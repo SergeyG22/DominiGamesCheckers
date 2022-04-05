@@ -72,4 +72,4 @@ cmake ..
 ```
 
 ### Preview
-![hippo](https://github.com/SergeyG22/DominiGamesCheckers/blob/master/doc/animations/animation.gif)
+![hippo](https://github.com/SergeyG22/DominiGamesCheckers/blob/developer/doc/animations/animation.gif)
