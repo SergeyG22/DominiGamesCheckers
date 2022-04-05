@@ -6,10 +6,10 @@
 #include "../include/Facades/game.h"
 
 int main() {
-    setlocale(LC_ALL,"russian");   
+	setlocale(LC_ALL,"russian");   
     std::shared_ptr<Game> game = std::make_unique<Game>();
     game->gameLoop();    
-    return 0;
+	return 0;
 }
 
 
