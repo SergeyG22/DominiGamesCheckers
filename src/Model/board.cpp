@@ -168,6 +168,14 @@ void Board::setInnerSquarePositions(int player_id, EdgePositions edge_position) 
 	}
 }
 
+void Board::restoreOuterSquarePositions(int player_id) {
+	m_outer_square_positions[player_id] = m_backup_outer_square_positions;
+}
+
+void Board::restoreInnerSquarePositions(int player_id) {
+	m_inner_square_positions[player_id] = m_backup_inner_sqaure_positions;
+}
+
 void Board::setIndexesObjects(int player_id, EdgePositions edge_position) {
 
 	switch (edge_position) {
@@ -205,17 +213,21 @@ void Board::addOuterSquarePositions(const std::vector<int>& indexes_outer, int p
 		int y = m_end_player_positions[player_id][indexes_outer[i]].second;
 		m_outer_square_positions[player_id].emplace_back(x, y);
 	}
+	m_backup_outer_square_positions = m_outer_square_positions[player_id];
 }
 
-void Board::addInnerSquarePositions(const std::vector<int>& indexes_outer, int player_id) {
-	for (int i = 0; i < indexes_outer.size(); ++i) {
-		int x = m_end_player_positions[player_id][indexes_outer[i]].first;
-		int y = m_end_player_positions[player_id][indexes_outer[i]].second;
+void Board::addInnerSquarePositions(const std::vector<int>& indexes_inner, int player_id) {
+	for (int i = 0; i < indexes_inner.size(); ++i) {
+		int x = m_end_player_positions[player_id][indexes_inner[i]].first;
+		int y = m_end_player_positions[player_id][indexes_inner[i]].second;
 		m_inner_square_positions[player_id].emplace_back(x, y);
 	}
+	m_backup_inner_sqaure_positions = m_inner_square_positions[player_id];
 }
 
 std::vector<std::vector<char>> &Board::getMatrix() {
     return m_matrix;
 }
+
+
 
