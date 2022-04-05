@@ -1,6 +1,7 @@
 ### SmartCheckers 
 ![CI - Windows](https://github.com/SergeyG22/DominiGamesCheckers/actions/workflows/windows_builds.yml/badge.svg)<br>
 [![CI - linux](https://github.com/SergeyG22/DominiGamesCheckers/actions/workflows/linux_builds.yml/badge.svg)](https://github.com/SergeyG22/DominiGamesCheckers/actions/workflows/linux_builds.yml)<br>
+Not tested under MacOS (no distribution).<br><br>
 Сheckers game with artificial intelligence elements.
 The players take turns.
 The first one who collects a row of nine pieces in the opponent's position wins.<br><br>
