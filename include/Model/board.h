@@ -34,3 +34,4 @@ public:
 	void changePlayerPosition(int, int, int, int);
 	void changeFinalPlayerPositions(int, int, int, int);
 };
+
