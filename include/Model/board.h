@@ -14,6 +14,8 @@ class Board {
 	std::map<int, std::vector<std::pair<int, int>>>m_end_player_positions;
 	std::map<int, std::deque<std::pair<int, int>>>m_outer_square_positions;
 	std::map<int, std::deque<std::pair<int, int>>>m_inner_square_positions;
+	std::deque<std::pair<int, int>>m_backup_outer_square_positions;
+	std::deque<std::pair<int, int>>m_backup_inner_sqaure_positions;
 	void setIndexesObjects(int, EdgePositions);
 	void setOuterSquarePositions(int, EdgePositions);
 	void setInnerSquarePositions(int, EdgePositions);
@@ -21,6 +23,8 @@ class Board {
 	void addInnerSquarePositions(const std::vector<int>&, int);
 public:  
 	Board();
+	void restoreOuterSquarePositions(int);
+	void restoreInnerSquarePositions(int);
 	std::vector<std::vector<char>>& getMatrix();
 	std::map<int, std::deque<std::pair<int, int>>>& getInnerSquarePositions();
 	std::map<int, std::deque<std::pair<int, int>>>& getOuterSquarePositions();
