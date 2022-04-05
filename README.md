@@ -69,7 +69,7 @@ cmake ..
 ### Mouse control
 
 ```
- [left mouse button] - select a shape
+[left mouse button] - select a shape [click on shape]
 ```
 
 ### Preview
