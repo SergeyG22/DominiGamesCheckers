@@ -33,7 +33,10 @@ void PlayerAi::isFormAvailable(){
             return;
         }
     }
- 
+    
+    m_model_ptr->restoreInnerSquarePositions(player_id);
+    m_model_ptr->restoreOuterSquarePositions(player_id);
+
     std::cout << "\n";
     std::cout << "фигуры не могут двигаться!\n" << '\n';
 }
@@ -123,7 +126,7 @@ bool PlayerAi::findFreePosition(int player_id, int object_number) {
       if (entry_to_square != std::end(iterator)) {
          
           for (int i = 0; i < m_model_ptr->getInnerSquarePositions()[m_player_id].size(); ++i) {
-
+              
               int free_pos_x = m_model_ptr->getInnerSquarePositions()[m_player_id][i].first;
               int free_pos_y = m_model_ptr->getInnerSquarePositions()[m_player_id][i].second;
 
@@ -140,9 +143,9 @@ bool PlayerAi::findFreePosition(int player_id, int object_number) {
                       m_current_active_object = true;
 
                       if (!m_model_ptr->getInnerSquarePositions()[m_player_id].empty()) {
-                           m_model_ptr->getInnerSquarePositions()[m_player_id].pop_front();
+                           m_model_ptr->getInnerSquarePositions()[m_player_id].erase(m_model_ptr->getInnerSquarePositions()[m_player_id].begin() + i);
                       }
-   
+
                       numbers_of_objects_touched_square.emplace_back(object_number);
                       break;
                     }
@@ -285,7 +288,6 @@ void PlayerAi::createPlayer(const EdgePositions& edge_position) {
     }
     
 }
-
 
 
 
